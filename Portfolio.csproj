@@ -127,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -134,7 +137,10 @@
     <Content Include="Content\Portfolio_css\demo.css" />
     <Content Include="Content\Portfolio_css\gradient.css" />
     <Content Include="Content\Portfolio_css\material-kit.css" />
+    <Content Include="Content\Portfolio_css\modalanimate.css" />
     <Content Include="Content\Portfolio_css\vertical-nav.css" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -170,6 +176,7 @@
     <Content Include="Images\jquery_logo1.png" />
     <Content Include="Images\js_logo1.jpg" />
     <Content Include="Images\js_logo2.png" />
+    <Content Include="Images\MarioGif.gif" />
     <Content Include="Images\mariya-georgieva.jpg" />
     <Content Include="Images\me.jpg" />
     <Content Include="Images\me2.jpg" />
@@ -189,6 +196,7 @@
     <Content Include="Images\xamarin_logo1.png" />
     <Content Include="Images\xamarin_logo2.png" />
     <Content Include="Images\xamarin_logo3.png" />
+    <Content Include="Scripts\Modal.js" />
     <Content Include="Scripts\Portfolio_js\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\Portfolio_js\bootstrap-material-design.min.js" />
     <Content Include="Scripts\Portfolio_js\bootstrap-selectpicker.js" />
@@ -278,6 +286,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="site.webmanifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

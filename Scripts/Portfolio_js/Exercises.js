@@ -25,8 +25,7 @@ $("#btnSub1").click(function () {
     //Calculate Smallest
     var min = Math.min(n1, n2, n3, n4, n5)
 
-    
-
+   
 
     $("#sum").text("The sum of your numbers: " + sum)
     $("#product").text("The product of your numbers: " + product)
@@ -53,14 +52,29 @@ $("#btnSub2").click(function () {
         return reverseStr === lowRegStr;
     }
 
+    function alert() {
+
+        Swal.fire
+            ({
+                title: 'Sorry!',
+                text: 'This word is Not a Palindrome',
+                imageUrl: ("/Images/MarioGif.gif"),
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                animation: false,
+                timer: 3000,
+                showConfirmButton: false
+            })
+    }
 
     if (palindrome(p) == true) {
         $("#palD").text("This word is a Palindrome")
     }
-
     else {
-        $("#palD").text("This word is Not a Palindrome")
+        $("#palD").text("Try again")
 
+        $("#palD").html(alert)
     }
 });
 
@@ -86,7 +100,7 @@ $("#btnSub3").click(function () {
 
         //Check Fizzy
 
-        if (((i % num1) == 0) && ((i % num2) == 0)) {
+        if ((Fizz == 0) && (Buzz == 0)) {
             myOutput += "<span class='FizzBuzz'>FizzBuzz. </span>";
 
         }
@@ -217,3 +231,4 @@ function clearData() {
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
+
