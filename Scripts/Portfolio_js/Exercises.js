@@ -43,15 +43,42 @@ $("#resultPali").hide();
 $("#btnSub2").click(function () {
     $("#resultPali").show();
 
+    //Get User Data
     var p = $("#p1").val();
 
+
+    //Calculation
     function palindrome(str) {
-        var re = /[\W_]/g;
         var lowRegStr = str.toLowerCase().replace(re, '');
         var reverseStr = lowRegStr.split('').reverse().join('');
         return reverseStr === lowRegStr;
     }
 
+    //Output
+    if (p.length < 2) {
+        $("#palD").text("Try again")
+
+        $("#palD").html(alert2)
+    }
+    else if (palindrome(p) == true) {
+        var re = /[\W_0-9]/g;
+        var numIn = p.search(re);
+        if (numIn == true) {
+            $("#palD").text("Try again")
+
+            $("#palD").html(alert2)
+        } else {
+
+             $("#palD").text("This word is a Palindrome")
+        }
+    }
+    else {
+            $("#palD").text("Try again")
+
+            $("#palD").html(alert)
+    }
+});
+    //Palindrome Alerts
     function alert() {
 
         Swal.fire
@@ -66,17 +93,23 @@ $("#btnSub2").click(function () {
                 timer: 3000,
                 showConfirmButton: false
             })
-    }
+    };
 
-    if (palindrome(p) == true) {
-        $("#palD").text("This word is a Palindrome")
-    }
-    else {
-        $("#palD").text("Try again")
+    function alert2() {
 
-        $("#palD").html(alert)
-    }
-});
+        Swal.fire
+            ({
+                title: 'Woops!',
+                text: 'You must have entered less than two characters or a number..',
+                imageUrl: ("/Images/MarioGif.gif"),
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                animation: false,
+                timer: 3000,
+                showConfirmButton: false
+            })
+    };
 
 //Fizz-Buzz
 
@@ -90,38 +123,29 @@ $("#btnSub3").click(function () {
     var myOutput = "";
 
     //Write Loop from 1 to 100
-
     for (var i = 1; i <= 100; i++) {
+
         //Record Modulus
         var Fizz = i % num1;
         var Buzz = i % num2;
-
-
+        var comma = " , ";
+        if (i == 100)
+        {
+            comma = " ";
+        }
 
         //Check Fizzy
-
         if ((Fizz == 0) && (Buzz == 0)) {
-            myOutput += "<span class='FizzBuzz'>FizzBuzz. </span>";
-
+            myOutput += "<span class='FizzBuzz'>FizzBuzz </span>" + comma;
         }
         else if (Fizz == 0) {
-            myOutput += "<span class='Fizz'>Fizz. </span>";
-
+            myOutput += "<span class='Fizz'>Fizz </span>" + comma;
         }
         else if (Buzz == 0) {
-            myOutput += "<span class='Buzz'>Buzz. </span>";
-
+            myOutput += "<span class='Buzz'>Buzz </span>" + comma;
         }
-        else {
-            var num = i.toString();
-            myOutput += num + ". ";
-        }
-
-
     }
 
-
-    myOutput = myOutput.substring(0, myOutput.length, -2);
     $("#fizB").html(myOutput);
 
 
@@ -140,21 +164,56 @@ $("#btnSub4").click(function () {
     var fain = +$("#n8").val();
 
 
-    //Calculate Factorial
-    for (i = (fain - 1); i > 1; i--) {
-        fain = fain * i;
+    if (fain <= 0) {
+        $("#fain").text("Try again")
+
+        $("#fain").html(factAlert)
+    }
+    else if (fain >= 172) {
+        $("#fain").text("Try again")
+
+        $("#fain").html(factAlert2)
+    }
+    else {
+                for (i = (fain - 1); i > 1; i--) {
+                    fain2 = fain * i;
 
 
-    };
-
-    //Output Results
-   $("#fain").text("The Factorial of " + $("#n8").val() + " is " + fain)
+                };
+                $("#fain").text("The Factorial of " + $("#n8").val() + " is " + fain2)
+         }
 
 
 });
+//factorial alerts
+function factAlert() {
+    Swal.fire({
+        title: 'Woops!',
+        text: 'Please enter a number greater than zero',
+        imageUrl: ("/Images/MarioGif.gif"),
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        animation: false,
+        timer: 3000,
+        showConfirmButton: false
 
+    })
+}
 
-
+function factAlert2() {
+    Swal.fire({
+        title: 'Woops!',
+        text: 'Please enter a number less than or equal to 171',
+        imageUrl: ("/Images/MarioGif.gif"),
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        animation: false,
+        timer: 3000,
+        showConfirmButton: false
+    })
+}
 //Function Handles
 
 
@@ -167,7 +226,7 @@ $("#btnClear1, #btnClear2, #btnClear3, #btnClear4").click(function () {
 
 
 
-$('a[data-toggle="tabs"]').click(function () {
+$('a[data-toggle="tab"]').click(function () {
 
     clearData();
 
@@ -193,42 +252,36 @@ function clearData() {
 
 };
 
+//Custom Theme JavaScript
+SyntaxHighlighter.all();
 
+$("#Mcode").hide();
+$("#btnCode").click(function () {
+    $("#Mcode").toggle();
 
+});
 
+$("#McodeP").hide();
+$("#btnCode2").click(function () {
+    $("#McodeP").toggle();
 
+});
 
+$("#McodeFb").hide();
+$("#btnCode3").click(function () {
+    $("#McodeFb").toggle();
 
-    //Custom Theme JavaScript
-        SyntaxHighlighter.all();
+});
 
-        $("#Mcode").hide();
-        $("#btnCode").click(function () {
-            $("#Mcode").toggle();
+$("#McodeF").hide();
+$("#btnCode4").click(function () {
+    $("#McodeF").toggle();
 
-        });
-
-        $("#McodeP").hide();
-        $("#btnCode2").click(function () {
-            $("#McodeP").toggle();
-
-        });
-
-        $("#McodeFb").hide();
-        $("#btnCode3").click(function () {
-            $("#McodeFb").toggle();
-
-        });
-
-        $("#McodeF").hide();
-        $("#btnCode4").click(function () {
-            $("#McodeF").toggle();
-
-        });
+});
 
 
 //Tooltips
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
 
+//$(document).ready(function () {
+//    $('[data-toggle="tooltip"]').tooltip();
+//});

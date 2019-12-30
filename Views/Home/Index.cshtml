@@ -11,7 +11,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    @*<link rel="icon" type="image/png" href="~/Images/RedApple.png">*@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         GJZ~Port
@@ -28,7 +27,6 @@
     <link href="~/Content/Portfolio_css/demo.css" rel="stylesheet" />
     <link href="~/Content/Portfolio_css/vertical-nav.css" rel="stylesheet" />
     <link href="~/Content/Portfolio_css/gradient.css" rel="stylesheet" />
-    <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
     <!--Syntax Highlighter CSS-->
     <link href="~/Scripts/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" />
@@ -36,17 +34,19 @@
     <style>
         .Fizz {
             color: red;
+            font-weight: bold;
         }
 
         .Buzz {
             color: blue;
+            font-weight: bold;
         }
 
         .FizzBuzz {
             color: purple;
+            font-weight: bold;
         }
     </style>
-    <link href="~/Content/Portfolio_css/modalanimate.css" rel="stylesheet" />
 </head>
 
 <body class="profile-page sidebar-collapse">
@@ -73,6 +73,7 @@
             </div>
         </div>
     </nav>
+
     <div class="page-header"></div>
     <div class="main main-raised">
         <div class="profile-content">
@@ -199,8 +200,10 @@
     </footer>
 
     <!--Contact Modal-->
-    <div class="modal" id="conMod" role="dialog" tabindex="-1" data-easein="tada">
-        <div class="modal-dialog">
+    <div id="conMod" class="modal fade" role="dialog" tabindex="-1" data-easein="tada">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
             <div class="modal-content modal-lg">
 
                 <div class="card card-signup card-plain">
@@ -230,18 +233,21 @@
                         <a href="https://github.com/Greg712144" target="_blank" class="btn btn-just-icon btn-link btn-dribbble btn-lg"><i class="fa fa-github-square"></i></a>
                         <a href="https://www.linkedin.com/in/gregorio-zambrana-5873a8152/" target="_blank" class="btn btn-just-icon btn-link btn-twitter btn-lg"><i class="fa fa-linkedin-square"></i></a>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
+
     <!--Javascript Modal-->
     <div id="jsMod" class="modal fade" role="dialog" tabindex="-1" data-easein="tada">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog" role="document">
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content modal-lg" style="width:800px;">
 
-                <div class="card card-nav-tabs card-signup card-plain">
+                <div class="card card-signup card-plain">
                     <div class="modal-header">
 
                         <div class="card-header card-header-primary text-center">
@@ -496,57 +502,38 @@
                                         <div class="col-md-12">
                                             <div id="McodeFb">
                                                 <pre class="brush:js">
-                                                                                    $("#btnSub3").click(function () {
-                                                                                            $("#resultFizz").show();
+                                                                                  
 
-                                                                                            //Get User Data
-                                                                                            var num1 = parseInt($("#n6").val());
-                                                                                            var num2 = parseInt($("#n7").val());
-                                                                                            var myOutput = "";
+                                                                                                                                                                    //Get User Data
+                                                                            var num1 = parseInt($("#n6").val());
+                                                                            var num2 = parseInt($("#n7").val());
+                                                                            var myOutput = "";
 
-                                                                                            //Write Loop from 1 to 100
+                                                                            //Write Loop from 1 to 100
+                                                                            for (var i = 1; i <= 100; i++) {
 
-                                                                                            for (var i = 1; i <= 100; i++) {
-                                                                                                //Record Modulus
-                                                                                                var Fizz = i % num1;
-                                                                                                var Buzz = i % num2;
-                
+                                                                                //Record Modulus
+                                                                                var Fizz = i % num1;
+                                                                                var Buzz = i % num2;
+                                                                                var comma = " , ";
+                                                                                if (i == 100)
+                                                                                {
+                                                                                    comma = " ";
+                                                                                }
 
+                                                                                //Check Fizzy
+                                                                                if ((Fizz == 0) && (Buzz == 0)) {
+                                                                                    myOutput += "<span class='FizzBuzz'>FizzBuzz </span>" + comma;
+                                                                                }
+                                                                                else if (Fizz == 0) {
+                                                                                    myOutput += "<span class='Fizz'>Fizz </span>" + comma;
+                                                                                }
+                                                                                else if (Buzz == 0) {
+                                                                                    myOutput += "<span class='Buzz'>Buzz </span>" + comma;
+                                                                                }
+                                                                            }
 
-                                                                                                //Check Fizzy
-                                                                                                if (((i % num1) == 0) && ((i % num2) == 0)) {
-                                                                                                    myOutput += "<span class='FizzBuzz'>FizzBuzz. </span>";
-
-                                                                                                }
-
-                                                                                                else if (Fizz == 0) {
-                                                                                                    myOutput += "<span class='Fizz'>Fizz. </span>";
-
-                                                                                                }
-
-                                                                                                else if (Buzz == 0) {
-                                                                                                    myOutput += "<span class='Buzz'>Buzz. </span>";
-
-                                                                                                }
-
-                                                                                                else {
-                                                                                                    var num = i.toString();
-                                                                                                    myOutput += num + ". ";
-                                                                                                        }
-
-                                                                                            
-                    
-                
-               
-                                                                                            }
-           
-
-                                                                                            myOutput = myOutput.substring(0, myOutput.length - 2);
-
-                                                                                            $("#fizB").html(myOutput);
-            
-
-                                                                                        });
+                                                                            $("#fizB").html(myOutput);
 
                                                                             </pre>
 
@@ -562,7 +549,7 @@
                             </div>
                             <div class="tab-pane" id="fact">
                                 <br />
-                                <p><b> Calculates the Factorial of numbers from 1 to 170.</b></p>
+                                <p><b> Calculates the Factorial of numbers from 1 to 171.</b></p>
                                 <hr />
                                 <div class="container-fluid">
                                     <div class="row">
@@ -633,14 +620,17 @@
                             </div>
 
                         </div>
+
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
     <!--Bug Modal-->
     <div id="bugMod" class="modal fade" role="dialog" tabindex="-1" data-easein="tada">
         <div class="modal-dialog" role="document">
@@ -682,7 +672,7 @@
 
                         <div class="card-header card-header-primary text-center">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                            <h3 class="card-title" style="height:70px; width:425px;">Blog Post!</h3>
+                            <h3 class="card-title" style="height:70px; width:425px;">Blogger!</h3>
                         </div>
                     </div>
                     <br />
@@ -690,7 +680,7 @@
                         <p><b>Here I have another completed project known as my Blog Post where I speak about myself but also about other projects and lessons I've learned in the process of becoming a Software Developer. You're more than welcome to check it out and leave a comment (must register to leave a comment).</b></p>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <a href="https://zamblog.azurewebsites.net/" target="_blank" class="btn btn-primary">Go to Blog Post..</a>
+                        <a href="https://bloggerlog.azurewebsites.net/" target="_blank" class="btn btn-primary">Go to Blogger</a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
 
@@ -716,10 +706,11 @@
                     </div>
                     <br />
                     <div class="modal-body ">
-                        <p><b>Under reconstruction mode</b></p>
+                        <p><b>Under recreation mode but can be previewed</b></p>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        @*<a href="#" target="_blank" class="btn btn-primary">Go to Budgeter App..</a>*@
+                        @*<a href="https://finportalz.azurewebsites.net/" target="_blank" class="btn btn-primary">Visit previous budget app </a>*@
+                        <a href="https://gjzfinportal.azurewebsites.net/" target="_blank" class="btn btn-primary">Go to Preview</a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
 
@@ -787,6 +778,11 @@
     </div>
 
     <!--   Core JS Files   -->
+    <script>
+        $(document).ready(function () {
+            ('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     <script src="~/Scripts/Portfolio_js/jquery.min.js"></script>
     <script src="~/Scripts/Portfolio_js/popper.min.js"></script>
     <script src="~/Scripts/Portfolio_js/bootstrap-material-design.min.js"></script>
@@ -809,7 +805,9 @@
     <script src="~/Scripts/Portfolio_js/Exercises.js"></script>
     <!--Modal Javascript-->
     <script src="~/Scripts/Modal.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.1/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js"></script>
